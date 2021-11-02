@@ -13,6 +13,8 @@ function App() {
 
   const [st4, setSt4] = React.useState(0);
 
+  const [st5, setSt5] = React.useState(0);
+
 
   function task1() {
     let inputValue = task1Value.current.value;
@@ -42,9 +44,14 @@ function App() {
     setSt4(st4 + 1);
   }
 
-  // function task5() {
+  function task5(event) {
+    if(event.target.checked) {
+      setSt5(event.target.value);
+    } else {
+      setSt5(0);
+    }
+  }
 
-  // }
   // function task6() {
 
   // }
@@ -85,12 +92,12 @@ function App() {
         <button className="task-4" onClick={task4}>Count</button>
         <div>{st4}</div>
       </section>
-      {/* <section>
+      <section>
         <h2>Task 5</h2>
-        <input type="checkbox" currentValue="55" />
+        <input type="checkbox" value="55" onChange={task5}/>
         <div>{st5}</div>
       </section>
-      <section>
+      {/* <section>
         <h2>Task 6</h2>
         <select className="task-6">
           <option value="7">seven</option>
