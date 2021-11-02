@@ -11,6 +11,8 @@ function App() {
 
   const [st3, setSt3] = React.useState([]);
 
+  const [st4, setSt4] = React.useState(0);
+
 
   function task1() {
     let inputValue = task1Value.current.value;
@@ -36,9 +38,10 @@ function App() {
     event.target.value = '';
   }
 
-  // function task4() {
+  function task4() {
+    setSt4(st4 + 1);
+  }
 
-  // }
   // function task5() {
 
   // }
@@ -77,12 +80,12 @@ function App() {
         <input type="text" className="task-3" onInput={task3}/>
         <div>{st3}</div>
       </section>
-      {/* <section>
+      <section>
         <h2>Task 4</h2>
-        <button className="task-4">Count</button>
+        <button className="task-4" onClick={task4}>Count</button>
         <div>{st4}</div>
       </section>
-      <section>
+      {/* <section>
         <h2>Task 5</h2>
         <input type="checkbox" currentValue="55" />
         <div>{st5}</div>
