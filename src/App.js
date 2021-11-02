@@ -9,7 +9,7 @@ function App() {
 
   const [st2, setSt2] = React.useState(0);
 
-
+  const [st3, setSt3] = React.useState([]);
 
 
   function task1() {
@@ -18,14 +18,24 @@ function App() {
     let st1Value = [...st1, inputValue];
 
     setSt1(st1Value);
+
+    task1Value.current.value = '';
   }
 
   function task2() {
     setSt2(st2 + 1);
   }
-  // function task3() {
 
-  // }
+  function task3(event) {
+    let inputValue = event.target.value;
+
+    let st3Value = [...st3, inputValue];
+
+    setSt3(st3Value);
+
+    event.target.value = '';
+  }
+
   // function task4() {
 
   // }
@@ -62,12 +72,12 @@ function App() {
         <div className="task-2" onMouseEnter={task2}></div>
         <div>{st2}</div>
       </section>
-      {/* <section>
+      <section>
         <h2>Task 3</h2>
-        <input type="text" className="task-3" />
+        <input type="text" className="task-3" onInput={task3}/>
         <div>{st3}</div>
       </section>
-      <section>
+      {/* <section>
         <h2>Task 4</h2>
         <button className="task-4">Count</button>
         <div>{st4}</div>
