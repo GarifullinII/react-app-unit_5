@@ -17,6 +17,17 @@ function App() {
 
   const [st6, setSt6] = React.useState([]);
 
+  const [st7, setSt7] = React.useState([]);
+  
+  function randomInt(a = 0, b = 255) {
+    let rand = a + Math.random() * (b + 1 - a);
+    return Math.round(rand);
+}
+  
+  let task7Ref = React.useRef();
+
+
+
 
   function task1() {
     let inputValue = task1Value.current.value;
@@ -29,7 +40,7 @@ function App() {
   }
 
   function task2() {
-    setSt2(st2 + 1);
+    setSt2((actual) => actual + 1);
   }
 
   function task3(event) {
@@ -43,7 +54,7 @@ function App() {
   }
 
   function task4() {
-    setSt4(st4 + 1);
+    setSt4((actual) => actual + 1);
   }
 
   function task5(event) {
@@ -58,9 +69,14 @@ function App() {
     setSt6(event.target.value)
   }
 
-  // function task7() {
+  function task7() {
+    let bgColor = `rgb(${randomInt()},${randomInt()},${randomInt()})`;
 
-  // }
+    let bgBlock = task7Ref.current.style.background;
+
+    setSt7(bgColor);
+  }
+
   // function task8() {
 
   // }
@@ -110,13 +126,13 @@ function App() {
         </select>
         <div>{st6}</div>
       </section>
-      {/* <section>
+      <section>
         <h2>Task 7</h2>
-        <div className="block-7"></div>
-        <button className="task-7">Color</button>
+        <div className="block-7" ref={task7Ref}></div>
+        <button className="task-7" onClick={task7}>Color</button>
         <div>{st7}</div>
       </section>
-      <section>
+      {/* <section>
         <h2>Task 8</h2>
         <input type="text" className="task-8"></input>
         <div>{st8}</div>
