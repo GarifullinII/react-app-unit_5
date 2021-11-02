@@ -5,19 +5,24 @@ import React from 'react';
 function App() {
   
   const [st1, setSt1] = React.useState([]);
-  let task1value = React.useRef();
+  let task1Value = React.useRef();
+
+  const [st2, setSt2] = React.useState(0);
+
+
+
 
   function task1() {
-    let inputValue = task1value.current.value;
+    let inputValue = task1Value.current.value;
 
-    let st1value = [...st1, inputValue];
+    let st1Value = [...st1, inputValue];
 
-    setSt1(st1value);
+    setSt1(st1Value);
   }
 
-  // function task2() {
-
-  // }
+  function task2() {
+    setSt2(st2 + 1);
+  }
   // function task3() {
 
   // }
@@ -48,16 +53,16 @@ function App() {
       <h1>События</h1>
       <section>
         <h2>Task 1</h2>
-        <input type="text" ref={task1value}/>
+        <input type="text" ref={task1Value}/>
         <button className="task-1" onClick={task1}>Push</button>
         <div>{st1}</div>
       </section>
-      {/* <section>
+      <section>
         <h2>Task 2</h2>
-        <div className="task-2"></div>
+        <div className="task-2" onMouseEnter={task2}></div>
         <div>{st2}</div>
       </section>
-      <section>
+      {/* <section>
         <h2>Task 3</h2>
         <input type="text" className="task-3" />
         <div>{st3}</div>
