@@ -27,6 +27,9 @@ function App() {
 
   const [st9, setSt9] = React.useState('');
 
+  const [st10, setSt10] = React.useState([]);
+  let task10Input = React.useRef();
+
 
 
 
@@ -88,9 +91,11 @@ function App() {
     setSt9(event.target.value);
   }
 
-  // function task10() {
+  function task10() {
+    setSt10([...st10, task10Input.current.value]);
 
-  // }
+    task10Input.current.value = '';
+  }
 
   return (
     <div>
@@ -147,12 +152,12 @@ function App() {
         <input type="range" className="task-9" onInput={task9}></input>
         <div>{st9}</div>
       </section>
-       {/* <section>
+       <section>
         <h2>Task 10</h2>
-        <input type="number" className="i-10"></input>
-        <button className="task-10">Push</button>
-        <div>Тут выводим - форма вывода любая!</div>
-      </section> */}
+        <input type="number" className="i-10" ref={task10Input}></input>
+        <button className="task-10" onClick={task10}>Push</button>
+        <div>{st10}</div>
+      </section>
     </div>
   );
 }
