@@ -17,14 +17,11 @@ function App() {
 
   const [st6, setSt6] = React.useState([]);
 
-  const [st7, setSt7] = React.useState([]);
-  
+  const [st7, setSt7] = React.useState('');
   function randomInt(a = 0, b = 255) {
     let rand = a + Math.random() * (b + 1 - a);
     return Math.round(rand);
 }
-  
-  let task7Ref = React.useRef();
 
 
 
@@ -71,9 +68,6 @@ function App() {
 
   function task7() {
     let bgColor = `rgb(${randomInt()},${randomInt()},${randomInt()})`;
-
-    let bgBlock = task7Ref.current.style.background;
-
     setSt7(bgColor);
   }
 
@@ -128,7 +122,7 @@ function App() {
       </section>
       <section>
         <h2>Task 7</h2>
-        <div className="block-7" ref={task7Ref}></div>
+        <div className="block-7" style={{background: st7}}></div>
         <button className="task-7" onClick={task7}>Color</button>
         <div>{st7}</div>
       </section>
