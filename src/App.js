@@ -25,6 +25,8 @@ function App() {
 
   const [st8, setSt8] = React.useState('');
 
+  const [st9, setSt9] = React.useState('');
+
 
 
 
@@ -81,9 +83,11 @@ function App() {
     }
     event.target.value = '';
   }
-  // function task9() {
 
-  // }
+  function task9(event) {
+    setSt9(event.target.value);
+  }
+
   // function task10() {
 
   // }
@@ -138,12 +142,12 @@ function App() {
         <input type="text" className="task-8" onKeyPress={task8}></input>
         <div>{st8}</div>
       </section>
-      {/* <section>
+     <section>
         <h2>Task 9</h2>
-        <input type="range" className="task-9"></input>
+        <input type="range" className="task-9" onInput={task9}></input>
         <div>{st9}</div>
       </section>
-      <section>
+       {/* <section>
         <h2>Task 10</h2>
         <input type="number" className="i-10"></input>
         <button className="task-10">Push</button>
