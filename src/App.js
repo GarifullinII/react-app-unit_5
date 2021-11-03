@@ -23,6 +23,8 @@ function App() {
     return Math.round(rand);
 }
 
+  const [st8, setSt8] = React.useState('');
+
 
 
 
@@ -71,9 +73,14 @@ function App() {
     setSt7(bgColor);
   }
 
-  // function task8() {
-
-  // }
+  function task8(event) {
+    if(!isNaN(+event.key)) {
+      setSt8(1);
+    } else {
+      setSt8(0)
+    }
+    event.target.value = '';
+  }
   // function task9() {
 
   // }
@@ -126,12 +133,12 @@ function App() {
         <button className="task-7" onClick={task7}>Color</button>
         <div>{st7}</div>
       </section>
-      {/* <section>
+      <section>
         <h2>Task 8</h2>
-        <input type="text" className="task-8"></input>
+        <input type="text" className="task-8" onKeyPress={task8}></input>
         <div>{st8}</div>
       </section>
-      <section>
+      {/* <section>
         <h2>Task 9</h2>
         <input type="range" className="task-9"></input>
         <div>{st9}</div>
